@@ -1,0 +1,44 @@
+<div class="p-6 relative inline-block text-rigth">
+  <div>
+    <button
+      type="button"
+      class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+      (click)="toggleDropdown()"
+    >
+      {{ displayedSortOrder }}
+      <!-- Dropdown Arrow -->
+      <svg
+        class="-mr-1 ml-2 h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M9.293 9.293a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+  <!-- Dropdown Content -->
+  <div
+    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+    [class.hidden]="isDropdownHidden"
+  >
+    <div class="py-1">
+      <!-- Dropdown Items -->
+      <a
+        (click)="onSortByLowest(); toggleDropdown()"
+        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Highest to Lowest</a
+      >
+      <a
+        (click)="onSortByHighest(); toggleDropdown()"
+        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Lowest to Highest</a
+      >
+    </div>
+  </div>
+</div>

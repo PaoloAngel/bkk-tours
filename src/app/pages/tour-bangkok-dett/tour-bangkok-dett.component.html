@@ -1,0 +1,25 @@
+<div *ngIf="tourDetails; else noTours">
+  <h2>{{ tourDetails.titleHeader }}</h2>
+  <p>{{ tourDetails.fullDescription }}</p>
+  <img
+    class="w-56"
+    [src]="tourDetails.imageHeaderUrl"
+    alt="{{ tourDetails.titleHeader }}"
+  />
+  <p>Price: ${{ tourDetails.price }}</p>
+  <div *ngIf="tourDetails.group">Group Tour</div>
+  <div *ngIf="tourDetails.private">Private Tour</div>
+  <div *ngIf="tourDetails.italian">Italian Speaking Guide</div>
+  <div *ngIf="tourDetails.english">English Speaking Guide</div>
+  <div *ngIf="tourDetails.available">Available</div>
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+    (click)="editTour()"
+  >
+    Edit Tour
+  </button>
+</div>
+
+<ng-template #noTours>
+  <p>No tours available at the moment.</p>
+</ng-template>
